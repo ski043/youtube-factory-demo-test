@@ -38,6 +38,7 @@ describe('App', () => {
     fireEvent.click(screen.getByRole('button', { name: 'Favourite Miso ramen' }))
     fireEvent.click(screen.getByLabelText('Favourites only'))
     expect(names()).toEqual(['Fish tacos', 'Miso ramen'])
+    expect(screen.getByRole('status')).toHaveTextContent('2 recipes · 55 min')
 
     fireEvent.change(screen.getByLabelText('Search recipes'), { target: { value: 'quick' } })
     expect(names()).toEqual(['Fish tacos'])
@@ -55,5 +56,21 @@ describe('App', () => {
     fireEvent.click(screen.getByLabelText('Favourites only'))
     fireEvent.click(screen.getByRole('button', { name: 'Favourite Shakshuka' }))
     expect(screen.getByText('No favourites yet. Star a recipe to add it here.')).toBeInTheDocument()
+  })
+
+  it('summarises the visible recipes and updates while typing', () => {
+    render(<App />)
+    const search = screen.getByLabelText('Search recipes')
+    const summary = screen.getByRole('status')
+    expect(summary).toHaveTextContent('6 recipes · 3 h 15 min')
+
+    fireEvent.change(search, { target: { value: 'vegetarian' } })
+    expect(summary).toHaveTextContent('2 recipes · 1 h 15 min')
+
+    fireEvent.change(search, { target: { value: 'tacos' } })
+    expect(summary).toHaveTextContent('1 recipe · 20 min')
+
+    fireEvent.change(search, { target: { value: 'pizza' } })
+    expect(summary).toHaveTextContent('No recipes')
   })
 })

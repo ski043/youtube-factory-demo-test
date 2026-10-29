@@ -18,7 +18,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
 }
 
 .search {
@@ -99,4 +99,10 @@
 
 .empty {
   color: #6b7280;
+}
+
+.summary {
+  margin: 0 0 24px;
+  color: #6b7280;
+  font-size: 0.9rem;
 }

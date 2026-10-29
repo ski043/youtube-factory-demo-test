@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import { loadFavourites, onlyFavourites, saveFavourites, toggleFavourite } from './favourites'
-import { filterRecipes, formatMinutes, recipes } from './recipes'
+import { filterRecipes, formatMinutes, recipes, summarizeRecipes } from './recipes'
 
 export default function App() {
   const [query, setQuery] = useState('')
@@ -42,6 +42,10 @@ export default function App() {
           Favourites only
         </label>
       </div>
+
+      <p className="summary" role="status">
+        {summarizeRecipes(shown)}
+      </p>
 
       {shown.length === 0 ? (
         <p className="empty">{emptyMessage}</p>

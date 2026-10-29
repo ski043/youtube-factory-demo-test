@@ -29,3 +29,10 @@ export function formatMinutes(minutes: number): string {
   const m = minutes % 60
   return m === 0 ? `${h} h` : `${h} h ${m} min`
 }
+
+/** "3 recipes · 1 h 35 min", or "No recipes" for an empty list. */
+export function summarizeRecipes(list: readonly Recipe[]): string {
+  if (list.length === 0) return 'No recipes'
+  const total = list.reduce((sum, r) => sum + r.minutes, 0)
+  return `${list.length} ${list.length === 1 ? 'recipe' : 'recipes'} · ${formatMinutes(total)}`
+}
