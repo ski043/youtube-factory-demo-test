@@ -16,4 +16,16 @@ describe('App', () => {
     fireEvent.change(screen.getByLabelText('Search recipes'), { target: { value: 'pizza' } })
     expect(screen.getByText('No recipes match “pizza”.')).toBeInTheDocument()
   })
+
+  it('summarizes the visible recipes as you type', () => {
+    render(<App />)
+    expect(screen.getByRole('status')).toHaveTextContent('6 recipes · 3 h 15 min')
+
+    const search = screen.getByLabelText('Search recipes')
+    fireEvent.change(search, { target: { value: 'quick' } })
+    expect(screen.getByRole('status')).toHaveTextContent('2 recipes · 45 min')
+
+    fireEvent.change(search, { target: { value: 'pizza' } })
+    expect(screen.getByRole('status')).toHaveTextContent(/^No recipes$/)
+  })
 })
