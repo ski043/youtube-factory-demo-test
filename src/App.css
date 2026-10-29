@@ -14,13 +14,27 @@
   color: #6b7280;
 }
 
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
 .search {
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   padding: 12px 14px;
   font-size: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 10px;
-  margin-bottom: 24px;
+}
+
+.favourites-only {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .grid {
@@ -37,6 +51,23 @@
   border-radius: 12px;
   padding: 18px;
   background: #fff;
+}
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.star {
+  border: none;
+  background: none;
+  padding: 0 2px;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #d97706;
+  cursor: pointer;
 }
 
 .card h2 {
