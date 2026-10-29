@@ -20,7 +20,27 @@
   font-size: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 10px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 24px;
+}
+
+.toolbar .search {
+  flex: 1;
+  width: auto;
+  min-width: 0;
+}
+
+.favourites-only {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
 .grid {
@@ -39,9 +59,37 @@
   background: #fff;
 }
 
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
 .card h2 {
-  margin: 0 0 6px;
+  margin: 0;
   font-size: 1.15rem;
+}
+
+.star {
+  border: none;
+  background: transparent;
+  padding: 0 4px;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #9ca3af;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.star[aria-pressed='true'] {
+  color: #eab308;
+}
+
+.star:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
 }
 
 .meta {
