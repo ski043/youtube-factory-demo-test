@@ -43,7 +43,7 @@
   background: #fffdf8;
   border: 1px solid #8c7f6d;
   border-radius: 10px;
-  margin-bottom: 32px;
+  margin-bottom: 8px;
 }
 
 .search::placeholder {
@@ -131,11 +131,13 @@
     margin-bottom: 24px;
   }
 
-  .search {
-    margin-bottom: 24px;
-  }
-
   .card {
     padding: 22px 20px;
   }
+}
+
+.summary {
+  margin: 0 0 24px;
+  color: #6b6053;
+  font-size: 0.9rem;
 }
