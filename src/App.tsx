@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import { filterRecipes, formatMinutes, recipes } from './recipes'
+import { filterRecipes, formatMinutes, recipes, summarizeRecipes } from './recipes'
 
 export default function App() {
   const [query, setQuery] = useState('')
@@ -21,6 +21,10 @@ export default function App() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
+
+      <p className="summary" role="status">
+        {summarizeRecipes(shown)}
+      </p>
 
       {shown.length === 0 ? (
         <p className="empty">No recipes match “{query.trim()}”.</p>

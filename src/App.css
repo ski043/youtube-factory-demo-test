@@ -20,7 +20,12 @@
   font-size: 1rem;
   border: 1px solid #d1d5db;
   border-radius: 10px;
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+}
+
+.summary {
+  margin: 0 0 24px;
+  color: #6b7280;
 }
 
 .grid {
