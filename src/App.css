@@ -33,9 +33,17 @@
   font-size: 1.0625rem;
 }
 
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
 .search {
   display: block;
-  width: 100%;
+  flex: 1;
+  min-width: 0;
   min-height: 52px;
   padding: 14px 18px;
   font: inherit;
@@ -43,7 +51,13 @@
   background: #fffdf8;
   border: 1px solid #8c7f6d;
   border-radius: 10px;
-  margin-bottom: 8px;
+}
+
+.favourites-only {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
 .search::placeholder {
@@ -51,7 +65,9 @@
   opacity: 1;
 }
 
-.search:focus-visible {
+.search:focus-visible,
+.star:focus-visible,
+.favourites-only input:focus-visible {
   outline: 3px solid #a65035;
   outline-offset: 3px;
 }
@@ -76,6 +92,26 @@
   background: #fffdf8;
   box-shadow: 0 3px 12px rgb(66 49 29 / 4%);
   overflow-wrap: anywhere;
+}
+
+.card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.star {
+  border: none;
+  background: none;
+  padding: 0 2px;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #a65035;
+  flex-shrink: 0;
+  min-width: 32px;
+  min-height: 32px;
+  cursor: pointer;
 }
 
 .card h2 {
@@ -120,6 +156,14 @@
   border-radius: 12px;
   text-align: center;
   overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
 }
 
 @media (max-width: 480px) {
